@@ -1,0 +1,2 @@
+# ansible_cicd_lint
+CICDパイプラインにてansibleの静的解析(lintチェック)を実行する
