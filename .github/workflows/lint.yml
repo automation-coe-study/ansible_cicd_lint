@@ -1,0 +1,20 @@
+name: Ansible Lint
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: self-hosted
+
+    env:
+      PYTHONUNBUFFERED: 1
+      ANSIBLE_FORCE_COLOR: 1
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Run ansible-lint
+      run: ansible-lint
