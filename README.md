@@ -24,6 +24,9 @@ CI コンポーネントとして利用することを目的としています�
      push:
        branches-ignore:
          - main
+     pull_request:
+       branches:
+         - main
 
    jobs:
      lint:
