@@ -16,5 +16,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Copy ansible-lint configuration
+      run: cp ansible_ci_lint/.ansible-lint .ansible-lint
+
+    - name: Copy yamllint configuration
+      run: cp ansible_ci_lint/.yamllint .yamllint
+
     - name: Run ansible-lint
       run: ansible-lint
+
+    - name: Run yamllint
+      run: yamllint .
