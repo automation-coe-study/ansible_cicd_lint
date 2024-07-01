@@ -16,6 +16,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Checkout ansible_ci_lint configurations
+      uses: actions/checkout@v3
+      with:
+        repository: automation-coe-study/ansible_cicd_lint
+        path: ansible_cicd_lint
+
     - name: Copy ansible-lint configuration
       run: cp ansible_ci_lint/.ansible-lint .ansible-lint
 
