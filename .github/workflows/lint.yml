@@ -23,10 +23,10 @@ jobs:
         path: ansible_cicd_lint
 
     - name: Copy ansible-lint configuration
-      run: cp ansible_ci_lint/.ansible-lint .ansible-lint
+      run: cp ansible_cicd_lint/.ansible-lint .ansible-lint
 
     - name: Copy yamllint configuration
-      run: cp ansible_ci_lint/.yamllint .yamllint
+      run: cp ansible_cicd_lint/.yamllint .yamllint
 
     - name: Run ansible-lint
       run: ansible-lint
