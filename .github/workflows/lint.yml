@@ -21,13 +21,6 @@ jobs:
       with:
         repository: automation-coe-study/ansible_cicd_lint
         path: ansible_cicd_lint
-        ref: iijima/create_lint_pipeline
-
-    - name: debug
-      run: ls -l
-
-    - name: debug
-      run: ls -l ansible_cicd_lint
 
     - name: Copy ansible-lint configuration
       run: cp ansible_cicd_lint/.ansible-lint .ansible-lint
