@@ -1,0 +1,35 @@
+name: Ansible Lint
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: self-hosted
+
+    env:
+      PYTHONUNBUFFERED: 1
+      ANSIBLE_FORCE_COLOR: 1
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Checkout ansible_cicd_lint configurations
+        uses: actions/checkout@v3
+        with:
+          repository: automation-coe-study/ansible_cicd_lint
+          path: ansible_cicd_lint
+
+      - name: Copy ansible-lint configuration
+        run: cp ansible_cicd_lint/.ansible-lint .ansible-lint
+
+      - name: Copy yamllint configuration
+        run: cp ansible_cicd_lint/.yamllint .yamllint
+
+      - name: Run ansible-lint
+        run: ansible-lint
+
+      - name: Run yamllint
+        run: yamllint .
